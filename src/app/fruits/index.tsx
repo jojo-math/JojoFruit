@@ -37,6 +37,7 @@ export default function FruitListScreen() {
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{ paddingHorizontal: 12, paddingVertical: 10 }}
+        style={{ maxHeight: 60 }}
       >
         <TouchableOpacity
           style={[styles.allButton, { backgroundColor: !selectedCatId ? "#27ae60" : "#eee" }]}
@@ -73,7 +74,11 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: 12,
     marginRight: 8,
-    borderWidth: 1,
+    borderWidth: 1.5,
     borderColor: "#27ae60",
+    minHeight: 36,
+    maxHeight: 36,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

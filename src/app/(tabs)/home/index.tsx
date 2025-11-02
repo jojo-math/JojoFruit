@@ -2,7 +2,7 @@ import { CATEGORIES } from "@/src/data/categories";
 import { FRUITS } from "@/src/data/fruits";
 import { Link } from "expo-router";
 import React, { useMemo } from "react";
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
@@ -13,48 +13,64 @@ export default function HomeScreen() {
     return { buyTotal, sellTotal };
   }, []);
 
+  // Debug: vérifier les catégories
+  console.log("CATEGORIES:", CATEGORIES);
+
   return (
     <SafeAreaView style={styles.container}>
-      {/* --- Logo et nom --- */}
-      <View style={styles.header}>
-        <Image
-          source={{ uri: "https://picsum.photos/seed/jojofruit/100/100" }}
-          style={styles.logo}
-        />
-        <Text style={styles.title}>JojoFruit 🍍</Text>
-        <Text style={styles.slogan}>Le goût du frais et du naturel</Text>
-      </View>
-
-      {/* --- Bloc de totaux --- */}
-      <View style={styles.stats}>
-        <View style={styles.statBox}>
-          <Text style={styles.statLabel}>💰 Total achat</Text>
-          <Text style={styles.statValue}>{totals.buyTotal.toLocaleString()} FCFA</Text>
+      <ScrollView>
+        {/* --- Logo et nom --- */}
+        <View style={styles.header}>
+          <Image
+            source={{ uri: "https://picsum.photos/seed/jojofruit/100/100" }}
+            style={styles.logo}
+          />
+          <Text style={styles.title}>JojoFruit 🍍</Text>
+          <Text style={styles.slogan}>Le goût du frais et du naturel</Text>
         </View>
-        <View style={styles.statBox}>
-          <Text style={styles.statLabel}>📈 Total vente</Text>
-          <Text style={styles.statValue}>{totals.sellTotal.toLocaleString()} FCFA</Text>
-        </View>
-      </View>
 
-      {/* --- Carousel des catégories --- */}
-      <Text style={styles.sectionTitle}>Catégories de fruits</Text>
-      <FlatList
-        data={CATEGORIES}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={styles.carouselContent}
-        renderItem={({ item }) => (
-          <Link href={`/fruits?categoryId=${item.id}`} asChild>
-            <TouchableOpacity
-              style={[styles.categoryCard, { backgroundColor: item.color }]}
-            >
-              <Text style={styles.categoryName}>{item.name}</Text>
-            </TouchableOpacity>
-          </Link>
-        )}
-      />
+        {/* --- Bloc de totaux --- */}
+        <View style={styles.stats}>
+          <View style={styles.statBox}>
+            <Text style={styles.statLabel}>💰 Total achat</Text>
+            <Text style={styles.statValue}>{totals.buyTotal.toLocaleString()} FCFA</Text>
+          </View>
+          <View style={styles.statBox}>
+            <Text style={styles.statLabel}>📈 Total vente</Text>
+            <Text style={styles.statValue}>{totals.sellTotal.toLocaleString()} FCFA</Text>
+          </View>
+        </View>
+
+        {/* --- Carousel des catégories --- */}
+        <Text style={styles.sectionTitle}>Catégories de fruits</Text>
+        <View style={styles.carouselContainer}>
+          <FlatList
+            data={CATEGORIES}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            keyExtractor={(item) => item.id}
+            contentContainerStyle={styles.carouselContent}
+            renderItem={({ item }) => (
+              <Link href={`/fruits?categoryId=${item.id}`} asChild>
+                <TouchableOpacity
+                  style={{
+                    width: 160,
+                    height: 128,
+                    borderRadius: 16,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginRight: 16,
+                    backgroundColor: item.color,
+                  }}
+                >
+                  <Text style={styles.categoryName}>{item.name}</Text>
+                </TouchableOpacity>
+              </Link>
+            )}
+          />
+
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -111,6 +127,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginLeft: 16,
     marginBottom: 8,
+  },
+  carouselContainer: {
+    height: 150,
   },
   carouselContent: {
     paddingHorizontal: 16,
