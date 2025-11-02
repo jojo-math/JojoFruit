@@ -1,35 +1,78 @@
 import AccordionView from "@/src/components/AccordionView";
 import { FRUITS } from "@/src/data/fruits";
+import { useFavoritesStore } from "@/src/state/favoritesStore";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import React from "react";
+import React, { useState } from "react";
 import { Button, Image, StyleSheet, Text, View } from "react-native";
-
-
+import { Dialog, List, Provider as PaperProvider, Portal } from "react-native-paper";
 export default function FruitDetailScreen() {
   const { id } = useLocalSearchParams();
   const router = useRouter();
   const fruit = FRUITS.find((f) => f.id === id);
 
+  const [visible, setVisible] = useState(false);
+  const { addFavorite } = useFavoritesStore();
+
   if (!fruit) return <Text>Fruit introuvable</Text>;
 
+  const hideDialog = () => setVisible(false);
+
   return (
-    <View style={styles.container}>
-      <Image source={{ uri: fruit.image }} style={styles.image} />
-      <Text style={styles.title}>{fruit.name}</Text>
-      <Text style={styles.price}>Prix : {fruit.sellPrice} FCFA</Text>
+    <PaperProvider>
+      <View style={styles.container}>
+        <Image source={{ uri: fruit.image }} style={styles.image} />
+        <Text style={styles.title}>{fruit.name}</Text>
+        <Text style={styles.price}>Prix : {fruit.sellPrice} FCFA</Text>
 
-      <AccordionView
-        description={fruit.description}
-        buyPrice={fruit.buyPrice}
-        stock={fruit.stock}
-      />
+        <AccordionView
+          description={fruit.description}
+          buyPrice={fruit.buyPrice}
+          stock={fruit.stock}
+        />
 
-      <View style={{ marginTop: 20 }}>
-        <Button title="Acheter" onPress={() => router.push(`/fruits/${fruit.id}/CheckoutScreen`)} />
-        <View style={{ height: 10 }} />
-        <Button title="Retour" onPress={() => router.back()} />
+        <View style={{ marginTop: 20 }}>
+          <Button title="Actions ⚙️" onPress={() => setVisible(true)} />
+        </View>
+
+        {/* --- Boîte de dialogue --- */}
+        <Portal>
+          <Dialog visible={visible} onDismiss={hideDialog}>
+            <Dialog.Title>Actions sur {fruit.name}</Dialog.Title>
+            <Dialog.Content>
+              <List.Item
+                title="Ajouter aux Favoris"
+                left={(props) => <List.Icon {...props} icon="heart" color="red" />}
+                onPress={() => {
+                  addFavorite(fruit);
+                  hideDialog();
+                }}
+              />
+              <List.Item
+                title="Acheter"
+                left={(props) => <List.Icon {...props} icon="cart" />}
+                onPress={() => {
+                  hideDialog();
+                  router.push(`/fruits/${fruit.id}/CheckoutScreen`);
+                }}
+              />
+              <List.Item
+                title="Pas intéressé"
+                left={(props) => <List.Icon {...props} icon="cancel" />}
+                onPress={() => {
+                  hideDialog();
+                  router.back();
+                }}
+              />
+              <List.Item
+                title="Annuler"
+                left={(props) => <List.Icon {...props} icon="close" />}
+                onPress={hideDialog}
+              />
+            </Dialog.Content>
+          </Dialog>
+        </Portal>
       </View>
-    </View>
+    </PaperProvider>
   );
 }
 
