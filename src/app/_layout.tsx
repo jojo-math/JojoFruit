@@ -8,8 +8,8 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <PaperProvider>
-        <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack screenOptions={{ headerShown: true }}>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false, title: "" }} />
         </Stack>
       </PaperProvider>
     </SafeAreaProvider>

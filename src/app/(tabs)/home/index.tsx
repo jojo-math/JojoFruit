@@ -13,8 +13,6 @@ export default function HomeScreen() {
     return { buyTotal, sellTotal };
   }, []);
 
-  // Debug: vérifier les catégories
-  console.log("CATEGORIES:", CATEGORIES);
 
   return (
     <SafeAreaView style={styles.container}>

@@ -5,22 +5,37 @@ import React from "react";
 export default function TabsLayout() {
   return (
     <Tabs
-      screenOptions={({ route }) => ({
-        headerShown: false,
-        tabBarIcon: ({ color, size }) => {
-          const icons: Record<string, keyof typeof Ionicons.glyphMap> = {
-            home: "home",
-            favorites: "heart",
-            about: "information-circle",
-          };
-          const iconName = icons[route.name] || "ellipse";
-          return <Ionicons name={iconName} color={color} size={size} />;
-        },
-      })}
+      screenOptions={{
+        headerShown: true,
+      }}
     >
-      <Tabs.Screen name="home" options={{ title: "Accueil" }} />
-      <Tabs.Screen name="favorites" options={{ title: "Favoris" }} />
-      <Tabs.Screen name="about" options={{ title: "À propos" }} />
+      <Tabs.Screen 
+        name="home/index" 
+        options={{ 
+          title: "Accueil",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home" size={size} color={color} />
+          ),
+        }} 
+      />
+      <Tabs.Screen 
+        name="favorites/index" 
+        options={{ 
+          title: "Favoris",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="heart" size={size} color={color} />
+          ),
+        }} 
+      />
+      <Tabs.Screen 
+        name="about/index" 
+        options={{ 
+          title: "À propos",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="information-circle" size={size} color={color} />
+          ),
+        }} 
+      />
     </Tabs>
   );
 }
