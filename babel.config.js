@@ -3,8 +3,7 @@ module.exports = function (api) {
   return {
     presets: [
       'babel-preset-expo',
-      'nativewind/babel',
-      'module:metro-react-native-babel-preset'
+      'nativewind/babel'
     ],
     plugins: [
       require.resolve('expo-router/babel'),

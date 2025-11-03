@@ -10,7 +10,7 @@ export const FRUITS: IFruit[] = [
     sellPrice: 300,
     categoryId: "c1",
     stock: 120,
-    image: "https://picsum.photos/seed/orange/400/300",
+    image: "https://images.unsplash.com/photo-1580052614034-c55d20bfee3b?w=400&h=300&fit=crop",
   },
   {
     id: "f2",
@@ -20,7 +20,7 @@ export const FRUITS: IFruit[] = [
     sellPrice: 250,
     categoryId: "c1",
     stock: 90,
-    image: "https://picsum.photos/seed/citron/400/300",
+    image: "https://images.unsplash.com/photo-1590502593747-42a996133562?w=400&h=300&fit=crop",
   },
 
   // 🥭 Tropicaux
@@ -32,7 +32,7 @@ export const FRUITS: IFruit[] = [
     sellPrice: 700,
     categoryId: "c2",
     stock: 60,
-    image: "https://picsum.photos/seed/ananas/400/300",
+    image: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=400&h=300&fit=crop",
   },
   {
     id: "f4",
@@ -42,7 +42,7 @@ export const FRUITS: IFruit[] = [
     sellPrice: 500,
     categoryId: "c2",
     stock: 80,
-    image: "https://picsum.photos/seed/papaye/400/300",
+    image: "https://images.unsplash.com/photo-1617112848923-cc2234396a8d?w=400&h=300&fit=crop",
   },
 
   // 🍓 Baies
@@ -54,7 +54,7 @@ export const FRUITS: IFruit[] = [
     sellPrice: 1100,
     categoryId: "c3",
     stock: 40,
-    image: "https://picsum.photos/seed/fraise/400/300",
+    image: "https://images.unsplash.com/photo-1518635017498-87f514b751ba?w=400&h=300&fit=crop",
   },
   {
     id: "f6",
@@ -64,7 +64,7 @@ export const FRUITS: IFruit[] = [
     sellPrice: 1200,
     categoryId: "c3",
     stock: 35,
-    image: "https://picsum.photos/seed/myrtille/400/300",
+    image: "https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=400&h=300&fit=crop",
   },
 
   // 🍎 Pommes et poires
@@ -76,7 +76,7 @@ export const FRUITS: IFruit[] = [
     sellPrice: 350,
     categoryId: "c4",
     stock: 200,
-    image: "https://picsum.photos/seed/pomme/400/300",
+    image: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400&h=300&fit=crop",
   },
   {
     id: "f8",
@@ -86,7 +86,7 @@ export const FRUITS: IFruit[] = [
     sellPrice: 450,
     categoryId: "c4",
     stock: 150,
-    image: "https://picsum.photos/seed/poire/400/300",
+    image: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=400&h=300&fit=crop",
   },
 
   // 🥥 Exotiques
@@ -98,7 +98,7 @@ export const FRUITS: IFruit[] = [
     sellPrice: 850,
     categoryId: "c5",
     stock: 70,
-    image: "https://picsum.photos/seed/mangue/400/300",
+    image: "https://images.unsplash.com/photo-1553279768-865429fa0078?w=400&h=300&fit=crop",
   },
   {
     id: "f10",
@@ -108,7 +108,7 @@ export const FRUITS: IFruit[] = [
     sellPrice: 1300,
     categoryId: "c5",
     stock: 30,
-    image: "https://picsum.photos/seed/dragonfruit/400/300",
+    image: "https://images.unsplash.com/photo-1527325678964-54921661f888?w=400&h=300&fit=crop",
   },
 
   // 🍇 À pépins
@@ -120,7 +120,7 @@ export const FRUITS: IFruit[] = [
     sellPrice: 950,
     categoryId: "c6",
     stock: 50,
-    image: "https://picsum.photos/seed/pasteque/400/300",
+    image: "https://images.unsplash.com/photo-1587049352846-4a222e784720?w=400&h=300&fit=crop",
   },
   {
     id: "f12",
@@ -130,6 +130,6 @@ export const FRUITS: IFruit[] = [
     sellPrice: 750,
     categoryId: "c6",
     stock: 110,
-    image: "https://picsum.photos/seed/raisin/400/300",
+    image: "https://images.unsplash.com/photo-1599819177375-d4eb5d0db0a9?w=400&h=300&fit=crop",
   },
 ];
