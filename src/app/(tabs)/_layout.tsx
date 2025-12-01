@@ -19,6 +19,29 @@ export default function TabsLayout() {
         }} 
       />
       <Tabs.Screen 
+        name="database/index" 
+        options={{ 
+          title: "Base de données",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="server" size={size} color={color} />
+          ),
+        }} 
+      />
+      <Tabs.Screen 
+        name="database/fruits" 
+        options={{ 
+          title: "Fruits DB",
+          href: null, // Cache cet écran de la barre de navigation
+        }} 
+      />
+      <Tabs.Screen 
+        name="database/categories" 
+        options={{ 
+          title: "Catégories DB",
+          href: null, // Cache cet écran de la barre de navigation
+        }} 
+      />
+      <Tabs.Screen 
         name="favorites/index" 
         options={{ 
           title: "Favoris",
@@ -41,7 +64,7 @@ export default function TabsLayout() {
         options={{ 
           title: "Etudiants",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="information-circle" size={size} color={color} />
+            <Ionicons name="people" size={size} color={color} />
           ),
         }} 
       />
@@ -50,7 +73,7 @@ export default function TabsLayout() {
         options={{ 
           title: "Contacts",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="information-circle" size={size} color={color} />
+            <Ionicons name="call" size={size} color={color} />
           ),
         }} 
       />
