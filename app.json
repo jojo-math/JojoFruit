@@ -39,7 +39,16 @@
             "backgroundColor": "#000000"
           }
         }
-      ]
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "message a l'utilisateur",
+          "microphonePermission": "message a l'utilisateur",
+          "recordAudioAndroid": true
+        }
+      ],
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,

@@ -36,6 +36,24 @@ export default function TabsLayout() {
           ),
         }} 
       />
+      <Tabs.Screen 
+        name="student/index" 
+        options={{ 
+          title: "Etudiants",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="information-circle" size={size} color={color} />
+          ),
+        }} 
+      />
+      <Tabs.Screen 
+        name="contacts/index" 
+        options={{ 
+          title: "Contacts",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="information-circle" size={size} color={color} />
+          ),
+        }} 
+      />
     </Tabs>
   );
 }
